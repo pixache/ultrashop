@@ -1,0 +1,55 @@
+# skUtilities gereksinimi eklendi.
+
+on load:
+	execute console command "/ultrashop reload"
+
+function sendYAML(p: player, t: text):
+	add yaml value {_t} from "US-M" to {_return::*}
+	send "%{_return::*}%" to {_p}
+
+command /ultrashop [<text>]:
+	aliases: us, shop
+	trigger:
+		if arg-1 is not set:
+			usOpenGUI(player)
+		else if arg-1 is "help":
+			set {_help::*} to colored yaml list "help.message" from "US-M"
+			send "%join {_help::*} with nl% " to executor
+		if arg-1 is "reload":
+			if executor has permission "us.reload":
+				set {_ms} to current system milliseconds
+				load yaml "plugins/UltraShop/items.yml" as "US-I"
+				load yaml "plugins/UltraShop/messages.yml" as "US-M"
+				#if yaml "US-I" is empty:
+				#	set file contents of "plugins/UltraShop/items.yml" to contents from url "link"
+				#if yaml "US-M" is empty:
+				#	set file contents of "plugins/UltraShop/messages.yml" to contents from url "link2"
+				save yaml "US-I"
+				save yaml "US-M"
+				send "&8[&9UltraShop&8] &eReload completed. (%difference between current system milliseconds and {_ms}%ms)"
+		else if arg-1 is not set:
+			usOpenGUI(player)
+
+function usOpenGUI(p: player):
+	loop yaml node keys "" from "US-I":
+		set {_GUI::gui::size} to yaml value "gui.size" from "US-I"
+		set {_GUI::gui::name} to yaml value "gui.name" from "US-I"
+		open virtual chest with size {_GUI::gui::size} named {_GUI::gui::name} to {_p}
+		loop yaml node keys "shop" from "US-I":
+			set {_GUI::shop::name} to yaml value "shop.%loop-value-2%.name" from "US-I"
+			set {_GUI::shop::lore::*} to colored yaml list "shop.%loop-value-2%.lore" from "US-I"
+			set {_GUI::shop::item} to yaml value "shop.%loop-value-2%.item" from "US-I" parsed as item
+			set {_GUI::shop::amount} to yaml value "shop.%loop-value-2%.amount" from "US-I"
+			set {_GUI::shop::price} to yaml value "shop.%loop-value-2%.price" from "US-I"
+			set {_GUI::shop::slots} to yaml value "shop.%loop-value-2%.slot" from "US-I"
+			make gui slot {_GUI::shop::slots} of {_p} with {_GUI::shop::item} named {_GUI::shop::name} with lore "%join {_GUI::shop::lore::*} with nl% " to run:
+				if {_p}'s balance >= {_GUI::shop::price}:
+					give {_GUI::shop::amount} of {_GUI::shop::item} named {_GUI::shop::name} to {_p}
+					remove {_GUI::shop::price} from {_p}'s balance
+					set {_return::*} to yaml value "buying-success" from "US-M"
+					replace all "{itemamount}" with "%{_GUI::shop::amount}%" in {_return::*}
+					replace all "{material}" with "%{_GUI::shop::name}%" in {_return::*}
+					replace all "{itemcost}" with "%{_GUI::shop::price}%" in {_return::*}
+					send "%{_return::*}%" to {_p}
+				else:
+					sendYAML({_p}, "not-enough-money")
