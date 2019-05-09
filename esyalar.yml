@@ -1,0 +1,27 @@
+gui:
+    genişlik: 3
+    isim: '&4UltraShop - Alpha 3'
+
+gelişmiş:
+    açıklama:
+    - '&5Eşya: &a{materyal}||&5Miktar: &a{esyamiktari}||&5Fiyat: &a{esyafiyati}'
+
+market:
+    kotm:
+        isim: '&eKing Of The Mines'
+        eşya: diamond
+        miktar: 3
+        fiyat: 1000
+        slot: 11
+    ofr:
+        isim: '&eOnly For Rich'
+        eşya: emerald
+        miktar: 1
+        fiyat: 1000
+        slot: 13
+    fe:
+        isim: '&eFor Engineers'
+        eşya: redstone
+        miktar: 1
+        fiyat: 1000
+        slot: 15
