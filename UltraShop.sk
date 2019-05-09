@@ -1,55 +1,54 @@
-# skUtilities gereksinimi eklendi.
-
 on load:
-	execute console command "/ultrashop reload"
+	execute console command "/ultrashop yenile"
 
-function sendYAML(p: player, t: text):
-	add yaml value {_t} from "US-M" to {_return::*}
+function placeholder(p: player, amount: text, name: text, price: text):
+	set {_return::*} to yaml value "satın-alındı" from "US-M"
+	replace all "{esyamiktari}" with {_amount} in {_return::*}
+	replace all "{materyal}" with {_name} in {_return::*}
+	replace all "{esyafiyati}" with {_price} in {_return::*}
 	send "%{_return::*}%" to {_p}
 
 command /ultrashop [<text>]:
 	aliases: us, shop
 	trigger:
 		if arg-1 is not set:
-			usOpenGUI(player)
-		else if arg-1 is "help":
-			set {_help::*} to colored yaml list "help.message" from "US-M"
-			send "%join {_help::*} with nl% " to executor
-		if arg-1 is "reload":
-			if executor has permission "us.reload":
+			usOpenGUI(player, "US-I", "market", yaml value "gui.genişlik" from "US-I", yaml value "gui.isim" from "US-I")
+		else if arg-1 is "yardım":
+			send "%join colored yaml list ""yardım.mesaj"" from ""US-M"" with nl% " to executor
+		else if arg-1 is "yenile":
+			if executor has permission "us.yenile":
 				set {_ms} to current system milliseconds
-				load yaml "plugins/UltraShop/items.yml" as "US-I"
-				load yaml "plugins/UltraShop/messages.yml" as "US-M"
-				#if yaml "US-I" is empty:
-				#	set file contents of "plugins/UltraShop/items.yml" to contents from url "link"
-				#if yaml "US-M" is empty:
-				#	set file contents of "plugins/UltraShop/messages.yml" to contents from url "link2"
+				send "&8[&9UltraShop&8] &eUltraShop yenileniyor..." to executor
+				if dir "plugins/UltraShop/" doesn't exist:
+					create dir "plugins/UltraShop/mesajlar.yml"
+					create dir "plugins/UltraShop/esyalar.yml"
+					set file contents of "plugins/UltraShop/esyalar.yml" to contents from url "https://raw.githubusercontent.com/pixache/ultramarket/master/esyalar.yml"
+					set file contents of "plugins/UltraShop/mesajlar.yml" to contents from url "https://raw.githubusercontent.com/pixache/ultramarket/master/mesajlar.yml"
+				load yaml "plugins/UltraShop/esyalar.yml" as "US-I"
+				load yaml "plugins/UltraShop/mesajlar.yml" as "US-M"
 				save yaml "US-I"
 				save yaml "US-M"
-				send "&8[&9UltraShop&8] &eReload completed. (%difference between current system milliseconds and {_ms}%ms)"
-		else if arg-1 is not set:
-			usOpenGUI(player)
+				send "&8[&9UltraShop&8] &eYenileme tamamlandı. (%difference between current system milliseconds and {_ms}%ms)"
+			else if executor doesn't have permission "us.reload":
+				send "%yaml value ""yetki-yok"" from ""US-M""%" to executor
 
-function usOpenGUI(p: player):
-	loop yaml node keys "" from "US-I":
-		set {_GUI::gui::size} to yaml value "gui.size" from "US-I"
-		set {_GUI::gui::name} to yaml value "gui.name" from "US-I"
-		open virtual chest with size {_GUI::gui::size} named {_GUI::gui::name} to {_p}
-		loop yaml node keys "shop" from "US-I":
-			set {_GUI::shop::name} to yaml value "shop.%loop-value-2%.name" from "US-I"
-			set {_GUI::shop::lore::*} to colored yaml list "shop.%loop-value-2%.lore" from "US-I"
-			set {_GUI::shop::item} to yaml value "shop.%loop-value-2%.item" from "US-I" parsed as item
-			set {_GUI::shop::amount} to yaml value "shop.%loop-value-2%.amount" from "US-I"
-			set {_GUI::shop::price} to yaml value "shop.%loop-value-2%.price" from "US-I"
-			set {_GUI::shop::slots} to yaml value "shop.%loop-value-2%.slot" from "US-I"
-			make gui slot {_GUI::shop::slots} of {_p} with {_GUI::shop::item} named {_GUI::shop::name} with lore "%join {_GUI::shop::lore::*} with nl% " to run:
-				if {_p}'s balance >= {_GUI::shop::price}:
-					give {_GUI::shop::amount} of {_GUI::shop::item} named {_GUI::shop::name} to {_p}
-					remove {_GUI::shop::price} from {_p}'s balance
-					set {_return::*} to yaml value "buying-success" from "US-M"
-					replace all "{itemamount}" with "%{_GUI::shop::amount}%" in {_return::*}
-					replace all "{material}" with "%{_GUI::shop::name}%" in {_return::*}
-					replace all "{itemcost}" with "%{_GUI::shop::price}%" in {_return::*}
-					send "%{_return::*}%" to {_p}
-				else:
-					sendYAML({_p}, "not-enough-money")
+function usOpenGUI(p: player, yaml: text, node: text, size: text, name: text):
+	open virtual chest with size {_size} named {_name} to {_p}
+	loop yaml node keys {_node} from {_yaml}:
+		set {_GUI::market::name} to yaml value "%{_node}%.%loop-value%.isim" from {_yaml}
+		set {_GUI::market::item} to yaml value "%{_node}%.%loop-value%.eşya" from {_yaml} parsed as item
+		set {_GUI::market::amount} to yaml value "%{_node}%.%loop-value%.miktar" from {_yaml}
+		set {_GUI::market::price} to yaml value "%{_node}%.%loop-value%.fiyat" from {_yaml}
+		set {_GUI::market::slot} to yaml value "%{_node}%.%loop-value%.slot" from {_yaml}
+		set {_GUI::market::açıklama::*} to colored yaml list "gelişmiş.açıklama" from {_yaml}
+		replace all "{esyamiktari}" with "%{_GUI::market::amount}%" in {_GUI::market::açıklama::*}
+		replace all "{materyal}" with "%{_GUI::market::item}%" in {_GUI::market::açıklama::*}
+		replace all "{esyafiyati}" with "%{_GUI::market::price}%" in {_GUI::market::açıklama::*}
+		make gui slot {_GUI::market::slot} of {_p} with {_GUI::market::item} named {_GUI::market::name} with lore "%join {_GUI::market::açıklama::*} with nl% " to run:
+			if {_p}'s balance >= {_GUI::market::price}:
+				give {_GUI::market::amount} of {_GUI::market::item} named {_GUI::market::name} to {_p}
+				remove {_GUI::market::price} from {_p}'s balance
+				placeholder({_p}, "%{_GUI::market::amount}%", "%{_GUI::market::name}%", "%{_GUI::market::price}%")
+			else:
+				send "%yaml value ""para-yok"" from ""US-M""%" to {_p}
+	delete {_GUI::*}
