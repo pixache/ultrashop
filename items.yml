@@ -1,0 +1,32 @@
+advanced:
+    lore:
+    - '&6Item: &a{material}||&5Amount: &a{itemamount}||&5Price: &a{itemprice}'
+
+shop:
+    name: '&4&lUltraShop &9&l&kiii &2&lb1.0'
+    size: 1
+    categories:
+        example:
+            name: '&6Category 1'
+            size: 3
+            item: diamond pickaxe
+            slot: 3
+            items:
+                item1:
+                    name: '&eExample Item'
+                    item: diamond
+                    amount: 10
+                    price: 10000
+                    slot: 13
+        category2:
+            name: '&6Category 2'
+            size: 5
+            item: diamond shovel
+            slot: 5
+            items:
+                item1:
+                    name: '&eExample Item 2'
+                    item: redstone
+                    amount: 10
+                    price: 10000
+                    slot: 22
