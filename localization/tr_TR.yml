@@ -1,0 +1,24 @@
+help:
+    message:
+    - '&6&m------------------------------&b'
+    - '&8[&9UltraShop&8] &eTetiklemek için komutlara tıklayın.'
+    - '&8[&9UltraShop&8] <suggest command:/us>&e/us &7: Marketi açar'
+    - '&8[&9UltraShop&8] <suggest command:/us yardım>&e/us yardım &7: Yardım mesajı'
+    - '&8[&9UltraShop&8] <suggest command:/us yenile>&e/us yenile &7: Skripti yeniler'
+    - '&8[&9UltraShop&8] <suggest command:/us dil>&e/us dil [dil]&7: Dili gösterir
+        veya değiştirir.'
+    - '&6&m------------------------------&b'
+
+no-money: '&8[&9UltraShop&8] &eParanız yetersiz.'
+
+no-perm: '&8[&9UltraShop&8] &eYetkiniz yok.'
+
+us:
+    skript:
+        reloaded: '&8[&9UltraShop&8] &eTüm veri başarıyla yenilendi.'
+    lang:
+        current: '&8[&9UltraShop&8] &eMevcut dil: {lang}'
+        changed: '&8[&9UltraShop&8] &eDil tr_TR olarak değiştirildi.'
+        doesnt-exist: '&8[&9UltraShop&8] &eBu dil mevcut değil.'
+
+purchased: '&8[&9UltraShop&8] &e$a adet $m &e$p TL karşılığında alındı.'

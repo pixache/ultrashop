@@ -4,8 +4,10 @@ help:
     - '&8[&9UltraShop&8] &eClick on commands in order to trigger.'
     - '&8[&9UltraShop&8] <suggest command:/us>&e/us &7: Opens shop.'
     - '&8[&9UltraShop&8] <suggest command:/us help>&e/us help &7: Sends help message.'
-    - '&8[&9UltraShop&8] <suggest command:/us reload>&e/us reload &7: Reloads shop
-        file.'
+    - '&8[&9UltraShop&8] <suggest command:/us reload>&e/us reload &7: Reloads skript
+        data.'
+    - '&8[&9UltraShop&8] <suggest command:/us lang>&e/us lang [lang]&7: Shows/changes
+        the lang'
     - '&6&m------------------------------&b'
 
 no-money: '&8[&9UltraShop&8] &eYou do not have enough money.'
@@ -13,7 +15,11 @@ no-money: '&8[&9UltraShop&8] &eYou do not have enough money.'
 no-perm: '&8[&9UltraShop&8] &eNo perm lul'
 
 us:
-    reloaded: '&8[&9UltraShop&8] &eSuccesfully reloaded items and messages.'
+    skript:
+        reloaded: '&8[&9UltraShop&8] &eSuccesfully reloaded all data.'
+    lang:
+        current: '&8[&9UltraShop&8] &eCurrent language is {lang}.'
+        changed: '&8[&9UltraShop&8] &eLanguage has been changed to en_US.'
+        doesnt-exist: '&8[&9UltraShop&8] &eThis language doesn''t exist.'
 
-purchased: '&8[&9UltraShop&8] &eSuccesfully purchased x{itemamount} of {material}
-    &efor {itemprice}'
+purchased: '&8[&9UltraShop&8] &eSuccesfully purchased x$a of $m &efor $p'
