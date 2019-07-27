@@ -1,0 +1,19 @@
+help:
+    message:
+    - '&6&m------------------------------&b'
+    - '&8[&9UltraShop&8] &eClick on commands in order to trigger.'
+    - '&8[&9UltraShop&8] <suggest command:/us>&e/us &7: Opens shop.'
+    - '&8[&9UltraShop&8] <suggest command:/us help>&e/us help &7: Sends help message.'
+    - '&8[&9UltraShop&8] <suggest command:/us reload>&e/us reload &7: Reloads shop
+        file.'
+    - '&6&m------------------------------&b'
+
+no-money: '&8[&9UltraShop&8] &eYou do not have enough money.'
+
+no-perm: '&8[&9UltraShop&8] &eNo perm lul'
+
+us:
+    reloaded: '&8[&9UltraShop&8] &eSuccesfully reloaded items and messages.'
+
+purchased: '&8[&9UltraShop&8] &eSuccesfully purchased x{itemamount} of {material}
+    &efor {itemprice}'
