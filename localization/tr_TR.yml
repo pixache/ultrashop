@@ -17,7 +17,8 @@ us:
     skript:
         reloaded: '&8[&9UltraShop&8] &eTüm veri başarıyla yenilendi.'
         uptodate: '&8[&9UltraShop&8] &eEn son sürümü kullanıyorsunuz, teşekkürler!'
-        outdated: '&8[&9UltraShop&8] &eEski veya özel bir sürüm kullanıyorsunuz.%nl%&8[&9UltraShop&8] &eLütfen SpigotMC üzerinden güncelleyin.'
+        outdated: '&8[&9UltraShop&8] &eEski veya özel bir sürüm kullanıyorsunuz.'
+        update: '&8[&9UltraShop&8] &eLütfen SpigotMC üzerinden güncelleyin.'
     lang:
         current: '&8[&9UltraShop&8] &eMevcut dil: {lang}'
         changed: '&8[&9UltraShop&8] &eDil tr_TR olarak değiştirildi.'
@@ -25,8 +26,5 @@ us:
         defining:
             to-set: '&8[&9UltraShop&8] &eLütfen değiştirilecek dili girin.'
             to-down: '&8[&9UltraShop&8] &eLütfen indirilecek dili girin.'
-        downloading:
-            downloaded: '&8[&9UltraShop&8] &eDil başarıyla indirildi.'
-            exists: '&8[&9UltraShop&8] &eBu dil zaten indirilmiş.'
 
 purchased: '&8[&9UltraShop&8] &e$a adet $m &e$p TL karşılığında alındı.'
