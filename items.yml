@@ -1,20 +1,25 @@
 advanced:
     lore:
-    - '&6Item: &a{material}||&5Amount: &a{itemamount}||&5Price: &a{itemprice}'
+    - '&8&m--------------&b||&6+ &aPrice: &7$p||&6+ &aClick to buy.||&8&m--------------&b'
 
 shop:
-    name: '&4&lUltraShop &9&l&kiii &2&lb1.0'
+    name: '&4&lUltraShop &9&l&kiii &2&l1.5'
     size: 1
+    back:
+        item: arrow
+        name: '&cClick to go back.'
     categories:
         example:
             name: '&6Category 1'
             size: 3
             item: diamond pickaxe
+            shiny: true
             slot: 3
             items:
                 item1:
                     name: '&eExample Item'
                     item: diamond
+                    shiny: true
                     amount: 10
                     price: 10000
                     slot: 13
@@ -22,11 +27,13 @@ shop:
             name: '&6Category 2'
             size: 5
             item: diamond shovel
+            shiny: true
             slot: 5
             items:
                 item1:
                     name: '&eExample Item 2'
                     item: redstone
+                    shiny: true
                     amount: 10
                     price: 10000
                     slot: 22
