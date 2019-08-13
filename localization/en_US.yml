@@ -6,8 +6,8 @@ help:
     - '&8[&9UltraShop&8] <suggest command:/us help>&e/us help &7: Sends help message.'
     - '&8[&9UltraShop&8] <suggest command:/us reload>&e/us reload &7: Reloads skript
         data.'
-    - '&8[&9UltraShop&8] <suggest command:/us lang>&e/us lang [lang]&7: Shows/changes
-        the lang'
+    - '&8[&9UltraShop&8] <suggest command:/us lang>&e/us lang <current/set/down> <lang>
+        &7: Info about langs.'
     - '&6&m------------------------------&b'
 
 no-money: '&8[&9UltraShop&8] &eYou do not have enough money.'
@@ -17,9 +17,17 @@ no-perm: '&8[&9UltraShop&8] &eNo perm lul'
 us:
     skript:
         reloaded: '&8[&9UltraShop&8] &eSuccesfully reloaded all data.'
+        uptodate: '&8[&9UltraShop&8] &eYou are using the latest version, thanks!'
+        outdated: '&8[&9UltraShop&8] &eYou are using a custom nor old version.%nl%&8[&9UltraShop&8] &ePlease update via SpigotMC.'
     lang:
         current: '&8[&9UltraShop&8] &eCurrent language is {lang}.'
         changed: '&8[&9UltraShop&8] &eLanguage has been changed to en_US.'
         doesnt-exist: '&8[&9UltraShop&8] &eThis language doesn''t exist.'
+        defining:
+            to-set: '&8[&9UltraShop&8] &ePlease enter the language to change.'
+            to-down: '&8[&9UltraShop&8] &ePlease enter the language to download.'
+        downloading:
+            downloaded: '&8[&9UltraShop&8] &eSuccesfully downloaded the language.'
+            exists: '&8[&9UltraShop&8] &eThis language is downloaded already.'
 
 purchased: '&8[&9UltraShop&8] &eSuccesfully purchased x$a of $m &efor $p'
