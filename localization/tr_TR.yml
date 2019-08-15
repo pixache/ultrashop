@@ -1,13 +1,8 @@
 help:
     message:
-    - '&6&m------------------------------&b'
-    - '&8[&9UltraShop&8] &eTetiklemek için komutlara tıklayın.'
-    - '&8[&9UltraShop&8] <suggest command:/us>&e/us &7: Marketi açar'
-    - '&8[&9UltraShop&8] <suggest command:/us yardım>&e/us yardım &7: Yardım mesajı'
-    - '&8[&9UltraShop&8] <suggest command:/us yenile>&e/us yenile &7: Skripti yeniler'
-    - '&8[&9UltraShop&8] <suggest command:/us dil>&e/us dil <mevcut/değiştir/indir>
-        <dil>&7: Dil bilgileri.'
-    - '&6&m------------------------------&b'
+    - <cmd:/us market>&e&l[&6Marketi Aç&e&l]
+    - <cmd:/us yenile>&e&l[&6Verileri Yenile&e&l]
+    - <suggest command:/us dil (mevcut/değiştir)>&e&l[&6Dil Bilgileri&e&l]
 
 no-money: '&8[&9UltraShop&8] &eParanız yetersiz.'
 
@@ -23,8 +18,6 @@ us:
         current: '&8[&9UltraShop&8] &eMevcut dil: {lang}'
         changed: '&8[&9UltraShop&8] &eDil tr_TR olarak değiştirildi.'
         doesnt-exist: '&8[&9UltraShop&8] &eBu dil mevcut değil.'
-        defining:
-            to-set: '&8[&9UltraShop&8] &eLütfen değiştirilecek dili girin.'
-            to-down: '&8[&9UltraShop&8] &eLütfen indirilecek dili girin.'
+        to-set: '&8[&9UltraShop&8] &eLütfen değiştirilecek dili girin.'
 
 purchased: '&8[&9UltraShop&8] &e$a adet $m &e$p TL karşılığında alındı.'

@@ -1,13 +1,8 @@
 help:
     message:
-    - '&6&m------------------------------&b'
-    - '&8[&9UltraShop&8] &eClick on commands in order to trigger.'
-    - '&8[&9UltraShop&8] <suggest command:/us>&e/us &7: Opens shop.'
-    - '&8[&9UltraShop&8] <suggest command:/us help>&e/us help &7: Sends help message.'
-    - '&8[&9UltraShop&8] <suggest command:/us reload>&e/us reload &7: Reloads data.'
-    - '&8[&9UltraShop&8] <suggest command:/us lang>&e/us lang <current/set/down> <lang>
-        &7: Info about langs.'
-    - '&6&m------------------------------&b'
+    - <cmd:/us shop>&e&l[&6Open Shop&e&l]
+    - <cmd:/us reload>&e&l[&6Reload Datas&e&l]
+    - <suggest command:/us lang (current/set)>&e&l[&6Language Information&e&l]
 
 no-money: '&8[&9UltraShop&8] &eYou do not have enough money.'
 
@@ -23,8 +18,6 @@ us:
         current: '&8[&9UltraShop&8] &eCurrent language is {lang}.'
         changed: '&8[&9UltraShop&8] &eLanguage has been changed to en_US.'
         doesnt-exist: '&8[&9UltraShop&8] &eThis language doesn''t exist.'
-        defining:
-            to-set: '&8[&9UltraShop&8] &ePlease enter the language to change.'
-            to-down: '&8[&9UltraShop&8] &ePlease enter the language to download.'
+        to-set: '&8[&9UltraShop&8] &ePlease enter the language to change.'
 
 purchased: '&8[&9UltraShop&8] &eSuccesfully purchased x$a of $m &efor $p'
