@@ -1,23 +1,26 @@
 help:
     message:
     - <cmd:/us shop>&e&l[&6Open Shop&e&l]
-    - <cmd:/us reload>&e&l[&6Reload Datas&e&l]
+    - <cmd:/us reload>&e&l[&6Reload&e&l]
     - <suggest command:/us lang (current/set)>&e&l[&6Language Information&e&l]
-
-no-money: '&8[&9UltraShop&8] &eYou do not have enough money.'
 
 no-perm: '&8[&9UltraShop&8] &eYou do not have enough permission.'
 
-us:
-    skript:
-        reloaded: '&8[&9UltraShop&8] &eSuccesfully reloaded all data.'
-        uptodate: '&8[&9UltraShop&8] &eYou are using the latest version, thanks!'
-        outdated: '&8[&9UltraShop&8] &eYou are using a old or custom version.'
-        update: '&8[&9UltraShop&8] &ePlease update via SpigotMC.'
-    lang:
-        current: '&8[&9UltraShop&8] &eCurrent language is {lang}.'
-        changed: '&8[&9UltraShop&8] &eLanguage has been changed to en_US.'
-        doesnt-exist: '&8[&9UltraShop&8] &eThis language doesn''t exist.'
-        to-set: '&8[&9UltraShop&8] &ePlease enter the language to change.'
+lores:
+    price: '&6+ &aPrice: &7$p'
+    click-to-buy: '&6+ &aClick to buy.'
+    not-enough-money: '&6+ &cNot enough money.'
 
-purchased: '&8[&9UltraShop&8] &eSuccesfully purchased x$a of $m &efor $p'
+skript:
+    reloaded: '&8[&9UltraShop&8] &eSuccesfully reloaded all data.'
+    uptodate: '&8[&9UltraShop&8] &eYou are using the latest version, thanks!'
+    outdated: '&8[&9UltraShop&8] &eYou are using a old or custom version.'
+    update: '&8[&9UltraShop&8] &ePlease update via SpigotMC.'
+
+lang:
+    current: '&8[&9UltraShop&8] &eCurrent language is {lang}.'
+    changed: '&8[&9UltraShop&8] &eLanguage has been changed to en_US.'
+    doesnt-exist: '&8[&9UltraShop&8] &eThis language doesn''t exist.'
+    to-set: '&8[&9UltraShop&8] &ePlease enter the language to change.'
+
+purchased: '&8[&9UltraShop&8] &ePurchasing successful.'
