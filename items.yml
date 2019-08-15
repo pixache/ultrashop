@@ -1,25 +1,32 @@
 advanced:
     lore:
     - '&8&m--------------&b||&6+ &aPrice: &7$p||&6+ &aClick to buy.||&8&m--------------&b'
+    filling-empty-slots:
+        enabled: false
+        item: white stained glass pane
+        name: '&b'
+    back:
+        item: arrow
+        name: '&cClick to go back.'
+    close:
+        item: barrier
+        name: '&cClick to close.'
 
 shop:
     name: '&4&lUltraShop &9&l&kiii &2&l1.5'
     size: 1
-    back:
-        item: arrow
-        name: '&cClick to go back.'
     categories:
         example:
             name: '&6Category 1'
             size: 3
             item: diamond pickaxe
-            shiny: true
+            shiny: false
             slot: 3
             items:
                 item1:
                     name: '&eExample Item'
                     item: diamond
-                    shiny: true
+                    shiny: false
                     amount: 10
                     price: 10000
                     slot: 13
@@ -27,13 +34,13 @@ shop:
             name: '&6Category 2'
             size: 5
             item: diamond shovel
-            shiny: true
+            shiny: false
             slot: 5
             items:
                 item1:
                     name: '&eExample Item 2'
                     item: redstone
-                    shiny: true
+                    shiny: false
                     amount: 10
                     price: 10000
                     slot: 22
