@@ -1,6 +1,6 @@
 advanced:
     lore:
-    - '&8&m--------------&b||&6+ &aPrice: &7$p||&6+ &aClick to buy.||&8&m--------------&b'
+    - '&8&m--------------&b||{price}||{afford}||&8&m--------------&b'
     filling-empty-slots:
         enabled: false
         item: white stained glass pane
@@ -13,7 +13,7 @@ advanced:
         name: '&cClick to close.'
 
 shop:
-    name: '&4&lUltraShop &9&l&kiii &2&l1.5'
+    name: '&2UltraShop &8[&91.7&8]'
     size: 1
     categories:
         example:
@@ -28,7 +28,7 @@ shop:
                     item: diamond
                     shiny: false
                     amount: 10
-                    price: 10000
+                    price: 6000
                     slot: 13
         category2:
             name: '&6Category 2'
