@@ -1,5 +1,5 @@
-version: 1.7
+version: 1.8
 
 update-check: true
 
-language: tr_TR
+language: en_US
