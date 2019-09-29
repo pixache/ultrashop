@@ -1,7 +1,10 @@
-version: 1.9
+# Do not change this if you are a real men ¯\_(ツ)_/¯
+version: 1.10
 
+# Disable this if you want a faster performance on reloads.
 update-check: true
 
+# Texts that will be displayed on GUI items.
 lores:
     price: '&6+ &aPrice: &7$p'
     sell-price: '&6+ &aSell Price: &7$s'
@@ -10,12 +13,14 @@ lores:
     not-enough-money: '&6+ &cNot enough money.'
     not-enough-material: '&6+ &cNot enough material.'
 
+# Reload messages.
 skript:
     reloaded: '&8[&9UltraShop&8] &eSuccesfully reloaded all data.'
     uptodate: '&8[&9UltraShop&8] &eYou are using the latest version, thanks!'
     outdated: '&8[&9UltraShop&8] &eYou are using an old or custom version.'
     update: '&8[&9UltraShop&8] &ePlease update via SpigotMC.'
 
+# Operation messages.
 operations:
     purchased: '&8[&9UltraShop&8] &ePurchasing successful.'
     sold: '&8[&9UltraShop&8] &eSelling successful.'
